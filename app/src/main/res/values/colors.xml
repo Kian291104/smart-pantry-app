@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_green">#2E7D32</color>
+    <color name="brand_green_dark">#1B5E20</color>
+    <color name="accent_orange">#EF6C00</color>
+    <color name="expired_red">#C62828</color>
+    <color name="text_secondary">#757575</color>
+</resources>
