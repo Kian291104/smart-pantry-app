@@ -12,6 +12,7 @@ Mobile App Development 700 – Kian Naidoo (402205512)
 - **Recipe detail:** each ingredient is marked ✓ or ✗ against your pantry, followed by the method.
 - **Settings:** highlight items that expire soon, toggle the Almost There list, and clear the pantry.
 - Input validation, a bottom navigation bar, and 19 recipes loaded on first run.
+-    - Title bars show live counts (pantry items and ready recipes); expired items are ignored when matching.
 
 ## Database: SQLite (SQLiteOpenHelper)
 I chose SQLite because pantry data is personal, single-user data that must work offline. It is built into Android, so it needs no server, account or internet connection. It is also relational: `recipes` → `recipe_ingredients` are linked by a foreign key, which suits the matching logic.
