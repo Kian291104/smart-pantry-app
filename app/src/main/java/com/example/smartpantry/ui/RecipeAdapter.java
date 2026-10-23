@@ -53,7 +53,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
                 + " • " + row.recipe.getIngredients().size() + " ingredients");
         if (row.missing != null) {
             h.missing.setVisibility(View.VISIBLE);
-            h.missing.setText("Missing: " + row.missing.getName());
+            int total = row.recipe.getIngredients().size();
+            h.missing.setText("Missing: " + row.missing.getName() + "  (" + (total - 1) + "/" + total + " available)");
         } else {
             h.missing.setVisibility(View.GONE);
         }
