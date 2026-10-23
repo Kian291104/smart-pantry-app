@@ -68,6 +68,7 @@ public class SuggestedRecipesActivity extends AppCompatActivity implements Recip
         for (Recipe r : matcher.suggest(allRecipes)) strictRows.add(new RecipeAdapter.Row(r, null));
         strictAdapter.setRows(strictRows);
         readyHeader.setText(getString(R.string.ready_to_cook, strictRows.size()));
+        setTitle(getString(R.string.title_suggested) + " (" + strictRows.size() + ")");
         emptyView.setVisibility(strictRows.isEmpty() ? View.VISIBLE : View.GONE);
 
         // 2) Optional, clearly separated "Almost There" list (missing exactly one ingredient)
