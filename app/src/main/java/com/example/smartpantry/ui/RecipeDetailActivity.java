@@ -33,6 +33,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         }
 
         setTitle(recipe.getName());
+        android.widget.Toast.makeText(this, recipe.getIngredients().size() + " ingredients needed", android.widget.Toast.LENGTH_SHORT).show();
         ((TextView) findViewById(R.id.text_detail_name)).setText(recipe.getName());
         ((TextView) findViewById(R.id.text_detail_time)).setText(getString(R.string.minutes_fmt, recipe.getMinutes()));
 
