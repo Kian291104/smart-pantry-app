@@ -88,4 +88,10 @@ public class RecipeMatcherTest {
         assertEquals("beef mince", IngredientNormalizer.normalize("ground beef"));
         assertEquals("pasta", IngredientNormalizer.normalize("Spaghetti"));
     }
+    @Test
+    public void expiredItems_areIgnored() {
+        RecipeMatcher m = new RecipeMatcher(Arrays.asList(
+                new PantryItem("milk", 500, "ml", "2000-01-01")));   // expired long ago
+        assertFalse(m.hasEnough(new RecipeIngredient("milk", 100, "ml")));
+    }
 }
