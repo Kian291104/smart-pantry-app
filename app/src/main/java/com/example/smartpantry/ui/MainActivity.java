@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements PantryAdapter.Lis
         List<PantryItem> items = db.getAllPantryItems();
         adapter.setItems(items, AppPrefs.expiryAlertsEnabled(this));
         emptyView.setVisibility(items.isEmpty() ? View.VISIBLE : View.GONE);
+        setTitle(getString(R.string.title_pantry) + " (" + items.size() + ")");
     }
 
     @Override
