@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import com.example.smartpantry.util.Format;
 /**
  * Core business logic: the STRICT-MATCHING RULE.
  * A recipe is "suggested" only if EVERY required ingredient is in the pantry
@@ -38,6 +38,8 @@ public class RecipeMatcher {
 
     public RecipeMatcher(List<PantryItem> pantry) {
         for (PantryItem item : pantry) {
+            Integer days = Format.daysUntil(item.getExpiryDate());
+            if (days != null && days < 0) continue; // expired food is never suggested
             String key = IngredientNormalizer.normalize(item.getName());
             pantryByName.computeIfAbsent(key, k -> new ArrayList<>()).add(item);
         }
